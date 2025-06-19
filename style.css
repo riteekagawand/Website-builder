@@ -1,0 +1,546 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.builder {
+  display: flex;
+  width: 100%;
+}
+
+.toolbar,
+.properties-panel {
+  width: 220px;
+  padding: 16px;
+  background: #f9fafb;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+  overflow-y: auto;
+  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.04);
+}
+
+.properties-panel {
+  border-left: 1px solid #ddd;
+  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.04);
+}
+
+.toolbar h2,
+.properties-panel h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.element,
+.section {
+  padding: 10px;
+  background: white;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: grab;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.element:hover,
+.section:hover {
+  background: #e5e7eb;
+}
+
+.canvas {
+  flex: 1;
+  background: #fff;
+  padding: 10px;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.canvas > .draggable {
+  border: 1px dashed transparent;
+  padding: 10px;
+  margin: 10px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.canvas > .draggable.selected {
+  border: 1px dashed #007bff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .builder {
+    flex-direction: column;
+  }
+
+  .toolbar,
+  .properties-panel {
+    width: 100%;
+    border: none;
+  }
+}
+
+/* Section Base Styles */
+section {
+  width: 100%;
+  padding: 40px 20px;
+  margin: 20px 0;
+  border: 1px dashed #bbb;
+  background-color: #f9f9f9;
+}
+
+/* Predefined Sections Styling */
+.hero {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  text-align: center;
+}
+
+.about {
+  background: #ffffff;
+  color: #333;
+}
+
+.custom-footer {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  text-align: center;
+}
+
+.footer-brand .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-brand .brand .logo {
+  background-color: #6366f1;
+  border-radius: 50%;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-col h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-col li {
+  margin: 6px 0;
+}
+
+.footer-col a {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer-icons svg {
+  width: 20px;
+  height: 20px;
+  fill: #9ca3af;
+  transition: fill 0.2s;
+}
+
+.footer-icons svg:hover {
+  fill: #ffffff;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .footer-main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    text-align: left;
+    flex: 1;
+  }
+
+  .footer-columns {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 2;
+    gap: 2rem;
+  }
+
+  .footer-col ul {
+    text-align: left;
+  }
+}
+
+
+/* Custom Hero Section Layout */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero-buttons button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-buttons button:first-child {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.hero-buttons button:first-child:hover {
+  background-color: #4338ca;
+}
+
+.hero-buttons button:last-child {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.hero-buttons button:last-child:hover {
+  background-color: #d1d5db;
+}
+
+/* Responsive Hero Layout */
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .hero-image {
+    flex: 1;
+  }
+
+  .hero-content {
+    flex: 1;
+    text-align: left;
+    padding-left: 2rem;
+  }
+}
+
+.custom-header {
+  background-color: #f7f7f7;
+  padding: 20px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #333;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.brand .logo {
+  width: 40px;
+  height: 40px;
+  background-color: #6366f1;
+  padding: 6px;
+  border-radius: 999px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+.header-btn {
+  background-color: #eee;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-btn:hover {
+  background-color: #ddd;
+}
+
+.header-btn .arrow {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.custom-about {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  border: 1px dashed #ccc;
+  margin: 20px 0;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-btn {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.about-btn:hover {
+  background-color: #4f46e5;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
+
+/* === Preview Modal === */
+.preview-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.preview-button:hover {
+  background-color: #4338ca;
+}
+
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+}
+
+.preview-modal.show {
+  display: flex;
+}
+
+.preview-toolbar {
+  padding: 10px;
+  background-color: #111827;
+  color: white;
+  text-align: right;
+}
+
+.preview-toolbar button {
+  background-color: #ef4444;
+  color: white;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.preview-toolbar button:hover {
+  background-color: #dc2626;
+}
+
+#preview-frame {
+  flex: 1;
+  border: none;
+  width: 100%;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drag & Drop Website Builder</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="builder">
+    <aside class="toolbar">
+  <h2>Elements</h2>
+  <div draggable="true" class="element" data-type="text">Text</div>
+  <div draggable="true" class="element" data-type="image">Image</div>
+  <div draggable="true" class="element" data-type="button">Button</div>
+
+  <h2>Sections</h2>
+  <div draggable="true" class="section droppable" data-section="header">Header Section</div>
+  <div draggable="true" class="section droppable" data-section="hero">Hero Section</div>
+  <div draggable="true" class="section droppable" data-section="about">About Section</div>
+  <div draggable="true" class="section droppable" data-section="footer">Footer Section</div>
+</aside>
+
+    <main id="canvas" class="canvas" ondragover="event.preventDefault()"></main>
+
+    <aside class="properties-panel">
+      <h2>Properties</h2>
+      <form id="property-form">
+        <label>Text / URL</label>
+        <input type="text" id="prop-text" />
+
+        <label>Font Size</label>
+        <input type="number" id="prop-font-size" min="10" max="72" />
+
+        <label>Text Color</label>
+        <input type="color" id="prop-color" />
+
+        <label>Background</label>
+        <input type="color" id="prop-bg" />
+
+        <label>Width (%)</label>
+        <input type="number" id="prop-width" min="10" max="100" />
+
+        <div class="actions">
+          <button type="button" id="duplicate">Duplicate</button>
+          <button type="button" id="delete">Delete</button>
+        </div>
+
+	<button id="preview" style="width: 100%; padding: 10px; margin-top: 15px;">🔍 Preview Website</button>
+
+	<!-- Fullscreen Preview Modal -->
+	<div id="preview-modal" class="preview-modal">
+ 	 <div class="preview-toolbar">
+  	  <button id="close-preview">❌ Close Preview</button>
+ 	 </div>
+ 	 <iframe id="preview-frame"></iframe>
+	</div>
+
+      </form>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
