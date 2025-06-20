@@ -21,13 +21,6 @@ A lightweight, no-framework website builder built with **pure HTML, CSS, and Jav
 - ♻️ **Duplicate & Delete Tools**  
   Instantly clone or remove any element/section for faster layout iterations.
 
----
-
-## 🖼️ Screenshots
-
-| Builder UI | Preview |
-|------------|---------|
-| ![Builder Screenshot](./screenshots/builder.png) | ![Preview Screenshot](./screenshots/preview.png) |
 
 ---
 
@@ -42,11 +35,9 @@ A lightweight, no-framework website builder built with **pure HTML, CSS, and Jav
 
 ## 🔗 Live Demo
 
-🌐 [Live Preview on GitHub Pages](https://yourusername.github.io/drag-drop-builder)
+🌐 [Live Preview on GitHub Pages](https://website-builder-beta.vercel.app/)
 
-📂 [Code Repository on GitHub](https://github.com/yourusername/drag-drop-builder)
-
-📹 [Video Demo](https://drive.google.com/file/d/your-demo-link/view)
+📂 [Code Repository on GitHub](https://github.com/riteekagawand/Website-builder)
 
 ---
 
@@ -78,7 +69,7 @@ Contributions are welcome! Feel free to fork this repo, submit issues, or sugges
 ## 📌 Author
 
 **Riteeka Gawand**  
-🔗 [LinkedIn](https://www.linkedin.com/in/riteeka-gawand-702553212)  
+🔗 [LinkedIn](https://www.linkedin.com/in/riteeka-gawand/)  
 📧 riteekagawand7@gmail.com
 
 ---
